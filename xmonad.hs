@@ -1,5 +1,7 @@
 import XMonad
 import XMonad.Util.EZConfig ( additionalKeys )
+import XMonad.Hooks.SetWMName
+import XMonad.Hooks.ManageDocks
 
 -- define the mod mask as a variable to be used in the keybindings and the basic settings as well 
 myModMask = mod4Mask
@@ -19,6 +21,15 @@ main = xmonad $ defaultConfig {
 
 	-- set the meta key used for the xmonad commands
 	modMask = myModMask,
+
+	--
+	manageHook = manageDocks <+> manageHook defaultConfig,
+
+	--
+	layoutHook = avoidStruts  $  layoutHook defaultConfig,
+
+	-- set a custom window manager name to help some apps to deal with xmonad
+	startupHook = setWMName "LG3D",
 
 	-- set the border for the windows which are open
 	borderWidth = 0
