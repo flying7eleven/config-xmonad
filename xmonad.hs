@@ -23,7 +23,7 @@ myKeyBindings =
 
 -- configure the main behavior
 main = do
-	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.config"
+	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.hs"
 	xmonad $ defaultConfig {
 		-- set the default terminal emulator
 		terminal = "terminator",
