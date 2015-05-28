@@ -4,6 +4,7 @@ import XMonad.Util.Run( spawnPipe )
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
+import System.IO ( hPutStrLn )
 
 -- define the mod mask as a variable to be used in the keybindings and the basic settings as well 
 myModMask = mod4Mask
@@ -19,7 +20,11 @@ myKeyBindings =
 		( ( 0, 0x1008ff4a ), spawn "terminator" ) -- toggle the tray and the xmobar
 	]
 
+-- Color of current window title in xmobar.
+xmobarTitleColor = "#FFB6B0"
 
+-- Color of current workspace in xmobar.
+xmobarCurrentWorkspaceColor = "#CEFFAC"
 
 -- configure the main behavior
 main = do
@@ -36,6 +41,14 @@ main = do
 
 		--
 		layoutHook = avoidStruts  $  layoutHook defaultConfig,
+
+		--
+		logHook = dynamicLogWithPP $ xmobarPP {
+			ppOutput = hPutStrLn xmproc,
+			ppTitle = xmobarColor xmobarTitleColor "" . shorten 100,
+			ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "",
+			ppSep = "   "
+		},
 
 		-- set some workspace names
 		workspaces = ["web", "irc", "code" ] ++ map show [4..9],
