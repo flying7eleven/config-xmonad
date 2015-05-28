@@ -1,7 +1,9 @@
 import XMonad
 import XMonad.Util.EZConfig ( additionalKeys )
+import XMonad.Util.Run( spawnPipe )
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.DynamicLog
 
 -- define the mod mask as a variable to be used in the keybindings and the basic settings as well 
 myModMask = mod4Mask
@@ -17,23 +19,27 @@ myKeyBindings =
 		( ( 0, 0x1008ff4a ), spawn "terminator" ) -- toggle the tray and the xmobar
 	]
 
+
+
 -- configure the main behavior
-main = xmonad $ defaultConfig {
-	-- set the default terminal emulator
-	terminal = "terminator",
+main = do
+	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.config"
+	xmonad $ defaultConfig {
+		-- set the default terminal emulator
+		terminal = "terminator",
 
-	-- set the meta key used for the xmonad commands
-	modMask = myModMask,
+		-- set the meta key used for the xmonad commands
+		modMask = myModMask,
 
-	--
-	manageHook = manageDocks <+> manageHook defaultConfig,
+		--
+		manageHook = manageDocks <+> manageHook defaultConfig,
 
-	--
-	layoutHook = avoidStruts  $  layoutHook defaultConfig,
+		--
+		layoutHook = avoidStruts  $  layoutHook defaultConfig,
 
-	-- set a custom window manager name to help some apps to deal with xmonad
-	startupHook = setWMName "LG3D",
+		-- set a custom window manager name to help some apps to deal with xmonad
+		startupHook = setWMName "LG3D",
 
-	-- set the border for the windows which are open
-	borderWidth = 0
-} `additionalKeys` myKeyBindings
+		-- set the border for the windows which are open
+		borderWidth = 0
+	} `additionalKeys` myKeyBindings
