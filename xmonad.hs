@@ -12,7 +12,7 @@ myModMask = mod4Mask
 myKeyBindings = 
 	[
 		( ( myModMask,  xK_r ), spawn "dmenu_run" ),
-		( ( myModMask .|. shiftMask,  xK_l ), spawn "xlock -mode forest" ),
+		( ( myModMask,  xK_l ), spawn "xlock -mode forest" ),
 		( ( myModMask,  xK_Return ), spawn "terminator" ),
 		( ( 0, 0x1008ff03 ), spawn "terminator" ), -- brightness down
 		( ( 0, 0x1008ff02 ), spawn "terminator" ), -- brightness up
