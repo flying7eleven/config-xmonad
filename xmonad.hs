@@ -24,6 +24,8 @@ myKeyBindings =
 
 -- Color of current window title in xmobar.
 xmobarTitleColor = "#FFB6B0"
+themeBackground = "#3c3b37"
+themeHighlight  = "#f07746"
 
 -- Color of current workspace in xmobar.
 xmobarCurrentWorkspaceColor = "#CEFFAC"
@@ -58,7 +60,8 @@ main = do
 			ppOutput = hPutStrLn xmproc,
 			ppTitle = xmobarColor xmobarTitleColor "" . shorten 100,
 			ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "",
-			ppSep = "   "
+			ppSep = "   ",
+			ppUrgent = xmobarColor "red" themeHighlight
 		},
 
 		-- set some workspace names
