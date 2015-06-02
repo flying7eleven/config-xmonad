@@ -1,5 +1,5 @@
 import XMonad
-import XMonad.Util.EZConfig ( additionalKeys )
+import XMonad.Util.EZConfig ( additionalKeys, removeMouseBindings )
 import XMonad.Util.Run( spawnPipe )
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageDocks
@@ -21,6 +21,14 @@ myKeyBindings =
 		( ( 0, 0x1008ff03 ), spawn "terminator" ), -- brightness down
 		( ( 0, 0x1008ff02 ), spawn "terminator" ), -- brightness up
 		( ( 0, 0x1008ff4a ), spawn "terminator" ) -- toggle the tray and the xmobar
+	]
+
+--
+myRemovedMouseBindings =
+	[
+		( myModMask, button1 ),
+		( myModMask, button2 ),
+		( myModMask, button3 )
 	]
 
 -- Color of current window title in xmobar.
@@ -78,4 +86,4 @@ main = do
 
 		-- set the border for the windows which are open
 		borderWidth = 0
-	} `additionalKeys` myKeyBindings
+	} `additionalKeys` myKeyBindings `removeMouseBindings`  myRemovedMouseBindings
