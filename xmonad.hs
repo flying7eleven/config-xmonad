@@ -53,7 +53,7 @@ main = do
 		manageHook = manageDocks <+> manageHook defaultConfig,
 
 		--
-		layoutHook = avoidStruts  $  layoutHook defaultConfig,
+		layoutHook = avoidStruts $ toggleLayouts Full tiledLayout,
 
 		--
 		logHook = dynamicLogWithPP $ xmobarPP {
