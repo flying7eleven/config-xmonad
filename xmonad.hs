@@ -6,6 +6,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.ToggleLayouts
 import System.IO ( hPutStrLn )
+import XMonad.Hooks.ICCCMFocus
 
 -- define the mod mask as a variable to be used in the keybindings and the basic settings as well 
 myModMask = mod4Mask
@@ -39,6 +40,17 @@ tiledLayout = Tall nmaster delta ratio
 		ratio   = 1/2    -- Default proportion of screen occupied by master pane.
 		delta   = 3/100  -- Percent of screen to increment by when resizing panes.
 
+--
+myLogHook xmobarPipe = dynamicLogWithPP xmobarPrinter >> takeTopFocus
+	where
+		xmobarPrinter = defaultPP {
+			ppOutput  = hPutStrLn xmobarPipe,
+			ppCurrent = xmobarColor "black" themeHighlight . wrap "[" "]",
+			ppTitle   = xmobarColor "green"  "" . shorten 80,
+			ppVisible = wrap "(" ")",
+			ppUrgent  = xmobarColor "red" themeHighlight
+		}
+
 -- configure the main behavior
 main = do
 	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.hs"
@@ -56,13 +68,7 @@ main = do
 		layoutHook = avoidStruts $ toggleLayouts Full tiledLayout,
 
 		--
-		logHook = dynamicLogWithPP $ xmobarPP {
-			ppOutput = hPutStrLn xmproc,
-			ppTitle = xmobarColor xmobarTitleColor "" . shorten 100,
-			ppCurrent = xmobarColor xmobarCurrentWorkspaceColor "",
-			ppSep = "   ",
-			ppUrgent = xmobarColor "red" themeHighlight
-		},
+		logHook = myLogHook xmproc,
 
 		-- set some workspace names
 		workspaces = [ "1:term", "2:www", "3:dev" ] ++ map show [4..9],
