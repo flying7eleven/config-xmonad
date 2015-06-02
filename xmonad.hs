@@ -26,6 +26,15 @@ xmobarTitleColor = "#FFB6B0"
 -- Color of current workspace in xmobar.
 xmobarCurrentWorkspaceColor = "#CEFFAC"
 
+-- A standard tiled layout, with a master pane and a secondary pane off to
+-- the side.  The master pane typically holds one window; the secondary
+-- pane holds the rest.  Copied from standard xmonad.hs template config.
+tiledLayout = Tall nmaster delta ratio
+	where
+		nmaster = 1      -- The default number of windows in the master pane.
+		ratio   = 1/2    -- Default proportion of screen occupied by master pane.
+		delta   = 3/100  -- Percent of screen to increment by when resizing panes.
+
 -- configure the main behavior
 main = do
 	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.hs"
