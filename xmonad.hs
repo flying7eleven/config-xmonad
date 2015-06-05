@@ -56,6 +56,8 @@ myLogHook xmobarPipe = dynamicLogWithPP xmobarPrinter >> takeTopFocus
 			ppCurrent = xmobarColor "black" themeHighlight . wrap "[" "]",
 			ppTitle   = xmobarColor "green"  "" . shorten 80,
 			ppVisible = wrap "(" ")",
+			ppHidden = wrap "(" ")",
+			ppHiddenNoWindows = wrap "(" ")",
 			ppUrgent  = xmobarColor "red" themeHighlight
 		}
 
