@@ -81,7 +81,7 @@ main = do
 		logHook = myLogHook xmproc,
 
 		-- set some workspace names
-		workspaces = [ "1:term", "2:www", "3:dev" ] ++ map show [4..9],
+		workspaces = [ "1:term", "2:www", "3:dev", "4:steam" ] ++ map show [5..9],
 
 		-- set a custom window manager name to help some apps to deal with xmonad
 		startupHook = setWMName "LG3D",
