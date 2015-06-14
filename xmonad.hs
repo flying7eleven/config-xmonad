@@ -17,7 +17,8 @@ myKeyBindings =
 		( ( myModMask, xK_r ), spawn "dmenu_run" ),
 		( ( myModMask, xK_l ), spawn "xlock -mode forest" ),
 		( ( myModMask, xK_Return ), spawn "terminator" ),
-		( ( myModMask, xK_f ), sendMessage ToggleLayout ),
+		( ( myModMask, xK_Return ), spawn "terminator" ),
+		( ( myModMask .|. shiftMask, xK_q ), spawn "~/.xmonad/myShutdownScript" ),
 		( ( 0, 0x1008ff03 ), spawn "terminator" ), -- brightness down
 		( ( 0, 0x1008ff02 ), spawn "terminator" ), -- brightness up
 		( ( 0, 0x1008ff4a ), spawn "terminator" ) -- toggle the tray and the xmobar
