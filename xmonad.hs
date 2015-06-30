@@ -62,6 +62,13 @@ myLogHook xmobarPipe = dynamicLogWithPP xmobarPrinter >> takeTopFocus
 			ppUrgent  = xmobarColor "red" themeHighlight
 		}
 
+--
+myManageHook = composeAll
+	[	className =? "Vlc"			--> doFloat,
+		className =? "fiji-Main"		--> doFloat,
+		className =? "Google-chrome-stable"	--> doShift "2"
+	] <+> manageDocks
+
 -- configure the main behavior
 main = do
 	xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar.hs"
@@ -73,7 +80,8 @@ main = do
 		modMask = myModMask,
 
 		--
-		manageHook = manageDocks <+> manageHook defaultConfig,
+		-- manageHook = manageDocks <+> manageHook defaultConfig,
+		manageHook = myManageHook,
 
 		--
 		layoutHook = avoidStruts $ toggleLayouts Full tiledLayout,
