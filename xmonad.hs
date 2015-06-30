@@ -66,6 +66,7 @@ myLogHook xmobarPipe = dynamicLogWithPP xmobarPrinter >> takeTopFocus
 myManageHook = composeAll
 	[	className =? "Vlc"			--> doFloat,
 		className =? "fiji-Main"		--> doFloat,
+		className =? "Zenity"			--> doFloat,
 		className =? "Google-chrome-stable"	--> doShift "2"
 	] <+> manageDocks
 
