@@ -1,5 +1,6 @@
 import XMonad
-import XMonad.Util.EZConfig ( additionalKeys, removeMouseBindings )
+import XMonad.Util.EZConfig( additionalKeys, removeMouseBindings )
+import XMonad.Hooks.ManageHelpers( composeOne, isFullscreen, isDialog,  doFullFloat, doCenterFloat )
 import XMonad.Util.Run( spawnPipe )
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageDocks
