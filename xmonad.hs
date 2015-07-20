@@ -67,6 +67,7 @@ myManageHook = composeAll
 	[	className =? "Vlc"			--> doFloat,
 		className =? "fiji-Main"		--> doFloat,
 		className =? "Zenity"			--> doFloat,
+		className =? "Dwarf_Fortress"		--> doFloat,
 		className =? "NetBeans IDE 8.0.2"	--> doShift "3:dev",
 		className =? "Google-chrome-stable"	--> doShift "2:www"
 	] <+> manageDocks
