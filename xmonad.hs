@@ -7,6 +7,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Layout.ToggleLayouts
 import System.IO ( hPutStrLn )
+import Graphics.X11.ExtraTypes.XF86
 import XMonad.Hooks.ICCCMFocus
 
 -- define the mod mask as a variable to be used in the keybindings and the basic settings as well 
@@ -20,6 +21,9 @@ myKeyBindings =
 		( ( myModMask, xK_Return ), spawn "terminator" ),
 		( ( myModMask, xK_Return ), spawn "terminator" ),
 		( ( myModMask .|. shiftMask, xK_q ), spawn "~/.xmonad/myShutdownScript" ),
+		( ( 0, xF86XK_AudioLowerVolume ), spawn "amixer set Master 2-" ),
+		( ( 0, xF86XK_AudioRaiseVolume ), spawn "amixer set Master 2+" ),
+		( ( 0, xF86XK_AudioMute ), spawn "amixer set Master toggle" ),
 		( ( 0, 0x1008ff03 ), spawn "terminator" ), -- brightness down
 		( ( 0, 0x1008ff02 ), spawn "terminator" ), -- brightness up
 		( ( 0, 0x1008ff4a ), spawn "terminator" ) -- toggle the tray and the xmobar
