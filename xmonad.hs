@@ -69,6 +69,7 @@ myManageHook = composeAll
 		className =? "fiji-Main"		--> doCenterFloat,
 		className =? "Zenity"			--> doCenterFloat,
 		className =? "Dwarf_Fortress"		--> doCenterFloat,
+		className =? "Factorio 0.11.22"		--> doFullFloat,
 		className =? "NetBeans IDE 8.0.2"	--> doShift "3:dev",
 		className =? "Google-chrome-stable"	--> doShift "2:www"
 	] <+> manageDocks
