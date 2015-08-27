@@ -5,7 +5,7 @@ My personal xmonad configuration.
 Installation on Arch Linux
 --------------------------
 ```sh
-pacman -S xmonad xmonad-contrib xmobar dmenu
+pacman -S xmonad xmonad-contrib xmobar dmenu zenity
 cd ~/.config
 git clone https://github.com/thuetz/xmonad-config.git
 cd ~
