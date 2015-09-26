@@ -21,8 +21,8 @@ myKeyBindings =
 		( ( myModMask, xK_Return ), spawn "terminator" ),
 		( ( myModMask, xK_Return ), spawn "terminator" ),
 		( ( myModMask .|. shiftMask, xK_q ), spawn "~/.xmonad/myShutdownScript" ),
-		( ( 0, xF86XK_AudioLowerVolume ), spawn "amixer set Master 2-" ),
-		( ( 0, xF86XK_AudioRaiseVolume ), spawn "amixer set Master 2+" ),
+		( ( 0, xF86XK_AudioLowerVolume ), spawn "amixer set Master 2000-" ),
+		( ( 0, xF86XK_AudioRaiseVolume ), spawn "amixer set Master 2000+" ),
 		( ( 0, xF86XK_AudioMute ), spawn "amixer set Master toggle" ),
 		( ( 0, 0x1008ff03 ), spawn "terminator" ), -- brightness down
 		( ( 0, 0x1008ff02 ), spawn "terminator" ), -- brightness up
