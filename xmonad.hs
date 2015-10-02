@@ -30,11 +30,11 @@ myKeyBindings =
 	]
 
 --
-myRemovedMouseBindings =
+myRemovedMouseBindings = -- disabled the overwrite again, mod-t is making a window unfloat
 	[
-		( myModMask, button1 ),
-		( myModMask, button2 ),
-		( myModMask, button3 )
+--		( myModMask, button1 ),
+--		( myModMask, button2 ),
+--		( myModMask, button3 )
 	]
 
 -- Color of current window title in xmobar.
