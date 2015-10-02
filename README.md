@@ -9,6 +9,6 @@ pacman -S xmonad xmonad-contrib xmobar dmenu zenity
 cd ~/.config
 git clone https://github.com/thuetz/config-xmonad.git
 cd ~
-ln -s ~/.config/xmonad-config .xmonad
+ln -s ~/.config/config-xmonad .xmonad
 xmonad --recompile
 ```
