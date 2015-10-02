@@ -10,11 +10,11 @@ import System.IO ( hPutStrLn )
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Hooks.ICCCMFocus
 
--- define the mod mask as a variable to be used in the keybindings and the basic settings as well 
+-- define the mod mask as a variable to be used in the keybindings and the basic settings as well
 myModMask = mod4Mask
 
 -- define the list of my custom key bindings to add to xmonad
-myKeyBindings = 
+myKeyBindings =
 	[
 		( ( myModMask, xK_r ), spawn "dmenu_run" ),
 		( ( myModMask, xK_l ), spawn "xlock -mode forest" ),
