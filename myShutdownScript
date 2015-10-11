@@ -1,9 +1,12 @@
 #!/bin/sh
 
-ACTION=`zenity --width=90 --height=200 --list --radiolist --text="Select logout action" --title="Logout" --column "Choice" --column "Action" TRUE Shutdown FALSE Reboot FALSE Hibernate`
+ACTION=`zenity --width=90 --height=250 --list --radiolist --text="Select logout action" --title="Logout" --column "Choice" --column "Action" TRUE Logout FALSE Shutdown FALSE Reboot FALSE Hibernate`
 
 if [ -n "${ACTION}" ];then
   case $ACTION in
+  Logout)
+     killall xmonad-x86_64-linux
+    ;;
   Shutdown)
 #    zenity --question --text "Are you sure you want to halt?" && systemctl poweroff
      systemctl poweroff
