@@ -73,6 +73,8 @@ myManageHook = composeAll
 		className =? "fiji-Main"		--> doCenterFloat,
 		className =? "Zenity"			--> doCenterFloat,
 		className =? "Dwarf_Fortress"		--> doCenterFloat,
+		title	  =? "RealLife Render Window"	--> doCenterFloat,
+		title	  =? "RealLife Render Window"	--> doShift "9",
 		className =? "Factorio 0.11.22"		--> doFullFloat,
 		isFullscreen 				--> doFullFloat
 	] <+> manageDocks
