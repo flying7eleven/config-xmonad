@@ -75,7 +75,7 @@ myManageHook = composeAll
 		className =? "Dwarf_Fortress"		--> doCenterFloat,
 		title	  =? "RealLife Render Window"	--> doCenterFloat,
 		title	  =? "RealLife Render Window"	--> doShift "9",
-		className =? "Factorio 0.11.22"		--> doFullFloat,
+		className =? "factorio"			--> doFullFloat,
 		isFullscreen 				--> doFullFloat
 	] <+> manageDocks
 
